@@ -7,7 +7,7 @@ Cypress.io plugin to allow tests to be ran in random order.
 
 When using this plugin the `it` blocks within a test will be ran in a random order (rather than the usual top -> bottom)
 
-Heavily based on `cypress-select-tests` by @bahmutov
+Heavily based on [cypress-select-tests](https://github.com/bahmutov/cypress-select-tests) by @bahmutov
 
 
 ## Install
