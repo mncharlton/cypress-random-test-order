@@ -32,6 +32,12 @@ Run Cypress tests as normal but pass in `random=true` as an environment variable
 npx cypress run --env random=true
 ```
 
+Can also be used with the Cypress test runner.
+
+```shell
+npx cypress open --env random=true
+```
+
 ## Limitations
 
 - Currently this will only work with a basic spec file, containing one `describe` block and multiple `it` blocks. It won't work with additional `describe` or `context` blocks.
