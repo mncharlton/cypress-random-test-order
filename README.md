@@ -41,6 +41,44 @@ npx cypress open --env random=true
 ## Limitations
 
 - Currently this will only work with a basic spec file, containing one `describe` block and multiple `it` blocks. It won't work with additional `describe` or `context` blocks.
+   - This will work:
+   ```
+    describe('an example test', () => {
+      it('first test', () => {
+        expect(true).to.equal(true)
+      })
+      it('second test', () => {
+        expect(true).to.equal(true)
+      })
+      it('third test', () => {
+        expect(true).to.equal(true)
+      })
+      it('fourth test', () => {
+        expect(true).to.equal(true)
+      })
+    })
+   ```
+   - This won't work:
+   ```
+    describe('an example test', () => {
+      context('first batch of stuff', () => {
+        it('first test', () => {
+          expect(true).to.equal(true)
+        })
+        it('second test', () => {
+          expect(true).to.equal(true)
+        })
+      })
+      context('second batch of stuff', () => {
+        it('third test', () => {
+          expect(true).to.equal(true)
+        })
+        it('fourth test', () => {
+          expect(true).to.equal(true)
+        })
+      })
+    })
+   ```
 - Any functions or hooks (`before`, `after`, etc) need to come before first `it` block.
 - Only the `it` blocks within a spec file will be randomised, the specs themselves will still run in alphabetical order
 
