@@ -63,33 +63,66 @@ const randomiseTests = (source) => {
     }
   }
 
-  const testCode = falafel(source, onNode).toString().split(/(?=\sit\()/)//('it(')
+  const contextBlockArray = falafel(source, onNode).toString().split(/(?=\scontext\()/)
+  let output = []
 
-  const finalBrackets = testCode[testCode.length - 1].lastIndexOf('});')
+  if (contextBlockArray.length !== 2) {
+    // We have context blocks
+    contextBlockArray.forEach((context, i) => {
+      const itBlockArray = context.split(/(?=\sit\()/)
 
-  const finalTest = testCode[testCode.length - 1].substr(0, finalBrackets)
-  const sourceMap = testCode[testCode.length - 1].substr(finalBrackets + 4)
+      if (i !== 0) {
+        shuffledContext = (i === contextBlockArray.length - 1)
+          ? shuffleItBlocks(itBlockArray, true)
+          : shuffleItBlocks(itBlockArray)
+        shuffledContext.push('});')  //close the context
+        output.push(shuffledContext.join(''))
+      } else {
+        output.push(itBlockArray[0])
+      }
+    })
+  } else {
+    // We don't have context blocks
+    const itBlockArray = falafel(source, onNode).toString().split(/(?=\sit\()/)//('it(')
+    shuffledItBlocks = shuffleItBlocks(itBlockArray)
 
+    output.push(shuffledItBlocks.join(''))
+  }
+
+  // close the describe block
+  output.push('});')
+  console.log(output.join(''))
+  return output.join('')
+}
+
+const shuffleItBlocks = (arrayOfItBlocks, finalContext = false) => {
+  const shuffledItBlocks = []
   const itBlocks = []
 
-  for (let i = 1; i <= testCode.length - 2; i++) {
-    itBlocks.push(testCode[i])
+  let finalBrackets = arrayOfItBlocks[arrayOfItBlocks.length - 1].lastIndexOf('});')
+  let finalItBlock = arrayOfItBlocks[arrayOfItBlocks.length - 1].substr(0, finalBrackets)
+
+  if (finalContext) {
+    //In the last context block, handle the describes closing brackets
+    finalBrackets = finalItBlock.lastIndexOf('});')
+    finalItBlock = finalItBlock.substr(0, finalBrackets)
   }
-  itBlocks.push(finalTest)
 
-  let output = []
-  output.push(testCode[0])
 
+  for (let i = 1; i <= arrayOfItBlocks.length - 2; i++) {
+    itBlocks.push(arrayOfItBlocks[i])
+  }
+  itBlocks.push(finalItBlock)
+
+  // put it back together
+  shuffledItBlocks.push(arrayOfItBlocks[0])
   let selection
   while (itBlocks.length > 0) {
     selection = Math.floor(Math.random() * itBlocks.length)
-    output.push(itBlocks[selection])
+    shuffledItBlocks.push(itBlocks[selection])
     itBlocks.splice(selection, 1)
   }
-
-  output.push(`});\n${sourceMap}`)
-
-  return output.join('')
+  return shuffledItBlocks
 }
 
 module.exports = {
