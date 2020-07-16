@@ -1,6 +1,6 @@
 {
   "name": "cypress-random-test-order",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Allow Cypress `it` blocks to run in a random order",
   "dependencies": {
     "@cypress/browserify-preprocessor": "2.2.4",
