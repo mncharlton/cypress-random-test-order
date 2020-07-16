@@ -1,6 +1,4 @@
 
-# ⚠️ Work in progress - will be published to NPM once ready to be used.
-
 # cypress-random-test-order
 
 Cypress.io plugin to allow tests to be ran in random order.
@@ -48,46 +46,9 @@ npx cypress open --env random=true
 
 ## Limitations
 
-- Currently this will only work with a basic spec file, containing one `describe` block and multiple `it` blocks. It won't work with additional `describe` or `context` blocks.
-   - This will work:
-   ```
-    describe('an example test', () => {
-      it('first test', () => {
-        expect(true).to.equal(true)
-      })
-      it('second test', () => {
-        expect(true).to.equal(true)
-      })
-      it('third test', () => {
-        expect(true).to.equal(true)
-      })
-      it('fourth test', () => {
-        expect(true).to.equal(true)
-      })
-    })
-   ```
-   - This won't work:
-   ```
-    describe('an example test', () => {
-      context('first batch of stuff', () => {
-        it('first test', () => {
-          expect(true).to.equal(true)
-        })
-        it('second test', () => {
-          expect(true).to.equal(true)
-        })
-      })
-      context('second batch of stuff', () => {
-        it('third test', () => {
-          expect(true).to.equal(true)
-        })
-        it('fourth test', () => {
-          expect(true).to.equal(true)
-        })
-      })
-    })
-   ```
-- Only the `it` blocks within a spec file will be randomised, the specs themselves will still run in alphabetical order
+- Will randomise the order of the `it` blocks within a `context` block, the `context` blocks themselves will stay in the same order
+  - Only works with multiple `context` blocks, not multiple `describe` blocks (only the outer most block can be a `describe`)
+- Only the `it` blocks within a spec file will be randomised, the spec files themselves will still run in alphabetical order
 
 
 ## Small print
