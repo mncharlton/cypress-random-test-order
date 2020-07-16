@@ -87,7 +87,6 @@ npx cypress open --env random=true
       })
     })
    ```
-- Any functions or hooks (`before`, `after`, etc) need to come before first `it` block.
 - Only the `it` blocks within a spec file will be randomised, the specs themselves will still run in alphabetical order
 
 
