@@ -66,7 +66,7 @@ const randomiseTests = (source) => {
   const contextBlockArray = falafel(source, onNode).toString().split(/(?=\scontext\()/)
   let output = []
 
-  if (contextBlockArray.length !== 2) {
+  if (contextBlockArray.length !== 1) {
     // We have context blocks
     contextBlockArray.forEach((context, i) => {
       const itBlockArray = context.split(/(?=\sit\()/)
