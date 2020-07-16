@@ -1,6 +1,8 @@
 
 # cypress-random-test-order
 
+[![NPM][npm-icon]][npm-url]
+
 Cypress.io plugin to allow tests to be ran in random order.
 
 When using this plugin the `it` blocks within a test will be ran in a random order (rather than the usual top -> bottom)
@@ -84,3 +86,7 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
+
+
+[npm-icon]: https://nodei.co/npm/cypress-random-test-order.svg?downloads=true
+[npm-url]: https://npmjs.org/package/cypress-random-test-order
