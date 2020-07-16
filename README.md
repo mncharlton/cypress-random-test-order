@@ -18,6 +18,14 @@ Assuming [Cypress](https://www.cypress.io) has been installed:
 npm install --save-dev cypress-random-test-order
 ```
 
+Add the following to your cypess/plugins/index.js file:
+```js
+const randomiseTests = require('cypress-random-test-order/randomise')
+module.exports = (on, config) => {
+  on('file:preprocessor', randomiseTests(config))
+}
+```
+
 ### Warning ⚠️
 
 - this package assumes JavaScript specs
