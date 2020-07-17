@@ -91,7 +91,6 @@ const randomiseTests = (source) => {
 
   // close the describe block
   output.push('});')
-  console.log(output.join(''))
   return output.join('')
 }
 
