@@ -1,6 +1,6 @@
 {
   "name": "cypress-random-test-order",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Allow Cypress `it` blocks to run in a random order",
   "dependencies": {
     "@cypress/browserify-preprocessor": "2.2.4",
@@ -26,5 +26,9 @@
     "cypress-plugin"
   ],
   "author": "Matt Charlton",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mncharlton/cypress-random-test-order"
+  }
 }
