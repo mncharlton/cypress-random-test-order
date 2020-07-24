@@ -96,5 +96,5 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 [npm-icon]: https://nodei.co/npm/cypress-random-test-order.svg?downloads=true
 [npm-url]: https://npmjs.org/package/cypress-random-test-order
-[ci-image]: https://circleci.com/gh/mncharlton/cypress-random-test-order.svg?style=svg
+[ci-image]: https://circleci.com/gh/mncharlton/cypress-random-test-order.svg?style=shield
 [ci-url]: https://circleci.com/gh/mncharlton/cypress-random-test-order
