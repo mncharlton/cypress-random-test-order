@@ -52,6 +52,10 @@ npx cypress open --env random=true
   - Only works with multiple `context` blocks, not multiple `describe` blocks (only the outer most block can be a `describe`)
 - Only the `it` blocks within a spec file will be randomised, the spec files themselves will still run in alphabetical order
 
+## Tests / CI
+
+Note that the tests ran during CI don't actually check the plugin is working (ie they don't check that the tests run in a random order), they are just checking that tests still run at all when the plugin is being used.
+
 
 ## Small print
 
