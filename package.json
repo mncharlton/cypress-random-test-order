@@ -14,12 +14,11 @@
     "mocha": "7.1.2",
     "mocha-banner": "1.1.2",
     "ramda": "0.27.0",
-    "semantic-release": "15.14.0",
     "snap-shot-it": "7.9.3"
   },
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx cypress run --env random=true"
   },
   "keywords": [
     "cypress",
