@@ -2,6 +2,7 @@
 # cypress-random-test-order
 
 [![NPM][npm-icon]][npm-url]
+
 [![Build status][ci-image]][ci-url]
 
 Cypress.io plugin to allow tests to be ran in random order.
