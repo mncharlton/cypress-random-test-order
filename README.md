@@ -3,6 +3,8 @@
 
 [![NPM][npm-icon]][npm-url]
 
+[![Build status][ci-image]][ci-url]
+
 Cypress.io plugin to allow tests to be ran in random order.
 
 When using this plugin the `it` blocks within a test will be ran in a random order (rather than the usual top -> bottom)
@@ -52,6 +54,10 @@ npx cypress open --env random=true
   - Only works with multiple `context` blocks, not multiple `describe` blocks (only the outer most block can be a `describe`)
 - Only the `it` blocks within a spec file will be randomised, the spec files themselves will still run in alphabetical order
 
+## Tests / CI
+
+Note that the tests ran during CI don't actually check the plugin is working (ie they don't check that the tests run in a random order), they are just checking that tests still run at all when the plugin is being used.
+
 
 ## Small print
 
@@ -90,3 +96,5 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 [npm-icon]: https://nodei.co/npm/cypress-random-test-order.svg?downloads=true
 [npm-url]: https://npmjs.org/package/cypress-random-test-order
+[ci-image]: https://circleci.com/gh/mncharlton/cypress-random-test-order.svg?style=svg
+[ci-url]: https://circleci.com/gh/mncharlton/cypress-random-test-order
