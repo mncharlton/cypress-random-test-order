@@ -1,4 +1,7 @@
 
+# Status
+As things stand I don't have time to address the issues here, if anyone wants to they're welcome to fork/raise PRs, etc.  It's unlikely I'll be updating it for the foreseeable future though (6th Feb 2021).
+
 # cypress-random-test-order
 
 [![NPM][npm-icon]][npm-url]
